@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCM Águia | Tactical Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Águia Florestal" class="logo-img">
+        </div>
+        
+        <nav class="nav-links">
+            <button onclick="openTab('mod1')" class="nav-btn"><i class="fas fa-book"></i> Manuais </button>
+            <button onclick="openTab('mod2')" class="nav-btn active"><i class="fas fa-calendar-check"></i> Checklists</button>
+            <button onclick="openTab('mod3')" class="nav-btn"><i class="fas fa-tools"></i> Manutenções</button>
+        </nav>
+        <li onclick="fazerLogout()" style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1);">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sair / Alternar Conta</span>
+        </li>
+
+        
+    </div>
+
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-title">
+                <h1>Painel de Prevenção</h1>
+                <p>Gestão de Checklists Mensais e Agendas</p>
+            </div>
+            <div class="header-tools">
+                <span class="badge-military">OPERACIONAL</span>
+            </div>
+        </header>
+
+        <section id="mod1" class="tab-content">
+            <div class="card glass-military">
+                <h3><i class="fas fa-book"></i> Biblioteca Técnica</h3>
+                
+                <select id="selecaoManual" onchange="visualizarManual()">
+                    <option value="">Selecione o Manual...</option>
+                    <option value="f1710d">Forwarder John Deere 1710D</option>
+                    <option value="h1270e">Harvester John Deere 1270E</option>
+                    <option value="jd160glc">Escavadeira John Deere 160GLC</option>
+                    <option value="h415">Cabeçote Harvester H415</option>
+                    <option value="h480c">Cabeçote Harvester H480C</option>
+                </select>
+        
+                <div id="manualDisplay" style="display:none; margin-top: 20px;">
+                    <h4 id="targetEquip" style="color: #a4c639;"></h4>
+                    <a id="btnAbrirPDF" href="#" target="_blank" class="btn-tactical" style="display:none; text-decoration:none; text-align:center; margin-top:15px;">
+                        <i class="fas fa-file-pdf"></i> ABRIR MANUAL PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="mod2" class="tab-content active">
+            <div class="card glass-military">
+                <h3><i class="fas fa-calendar-check"></i> Checklist Operacional</h3>
+                
+                <select id="maquinaChecklist" onchange="gerarCamposChecklist()">
+                    <option value="">Selecione para inspeção...</option>
+                    <option value="f1710d">Forwarder 1710D</option>
+                    <option value="h1270e">Harvester 1270E</option>
+                    <option value="jd160glc">Escavadeira 160GLC</option>
+                    <option value="h415">Cabeçote H415</option>
+                    <option value="h480c">Cabeçote H480C</option>
+                </select>
+        
+                <form id="checklistDinamicoForm" style="display:none; margin-top: 20px;">
+                    <div id="areaPerguntas"></div>
+                    <textarea id="obsChecklist" placeholder="Observações..."></textarea>
+                    <button type="submit" class="btn-tactical">ENVIAR AO PCM</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="mod3" class="tab-content">
+            <div class="card-status-grid adm-only" id="painel-status-adm" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px;">
+                <div class="card-status" style="background: rgba(231, 76, 60, 0.2); border: 1px solid #e74c3c; padding: 15px; border-radius: 8px; text-align: center;">
+                    <h4 style="margin: 0; font-size: 0.8rem; color: #e74c3c;">PENDENTES</h4>
+                    <span id="count-pendente" style="font-size: 2rem; font-weight: bold;">0</span>
+                </div>
+                <div class="card-status" style="background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; padding: 15px; border-radius: 8px; text-align: center;">
+                    <h4 style="margin: 0; font-size: 0.8rem; color: #3498db;">EM EXECUÇÃO</h4>
+                    <span id="count-execucao" style="font-size: 2rem; font-weight: bold;">0</span>
+                </div>
+                <div class="card-status" style="background: rgba(46, 204, 113, 0.2); border: 1px solid #2ecc71; padding: 15px; border-radius: 8px; text-align: center;">
+                    <h4 style="margin: 0; font-size: 0.8rem; color: #2ecc71;">CONCLUÍDAS</h4>
+                    <span id="count-concluida" style="font-size: 2rem; font-weight: bold;">0</span>
+                </div>
+            </div>
+
+            <div class="card glass-military adm-only" id="area-cadastro-maquina" style="margin-bottom: 20px;">
+                <h3><i class="fas fa-plus-circle"></i> Gerenciar Frota</h3>
+                <form id="formCadastroMaquina" onsubmit="salvarMaquinaNoPython(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <input type="text" id="newNomeMaquina" placeholder="Nome (Ex: Skidder 548L-II)" required class="input-tactical">
+                    <input type="text" id="newIdMaquina" placeholder="ID/Sufixo (Ex: sk548)" required class="input-tactical">
+                    <button type="submit" class="btn-tactical" style="grid-column: span 2; background: #20643f;">
+                        <i class="fas fa-save"></i> CADASTRAR NO SISTEMA (PYTHON)
+                    </button>
+                </form>
+                
+                <div id="lista-maquinas" style="margin-top: 20px;"></div>
+            </div>
+
+            <div class="card glass-military adm-only" id="area-criacao-os">
+                <h3><i class="fas fa-file-medical"></i> Abertura de Ordem de Serviço</h3>
+                <form id="formOS" onsubmit="gerarNovaOS(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <input type="text" id="osSolicitante" placeholder="Nome do Solicitante" required class="input-tactical">
+                    <select id="osMaquina" required class="input-tactical">
+                        <option value="">Selecione a Máquina...</option>
+                        <option value="f1710d">Forwarder 1710D</option>
+                        <option value="h1270e">Harvester 1270E</option>
+                        <option value="jd160glc">Escavadeira 160GLC</option>
+                    </select>
+                    <input type="number" id="osHorimetro" placeholder="Horímetro Atual" required class="input-tactical">
+                    <select id="osPrioridade" required class="input-tactical">
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                    <textarea id="osProblema" placeholder="Descrição detalhada do defeito..." style="grid-column: span 2;" required></textarea>
+                    <button type="submit" class="btn-tactical" style="grid-column: span 2;">EMITIR ORDEM DE SERVIÇO</button>
+                </form>
+            </div>
+
+            <div class="card glass-military" style="margin-top: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3><i class="fas fa-tools"></i> Quadro de Manutenções</h3>
+                    <input type="text" id="buscaOS" placeholder="Filtrar por máquina..." onkeyup="carregarOrdensGerais()" style="background: rgba(255,255,255,0.1); border: 1px solid #40b049; color: white; padding: 8px; border-radius: 5px; width: 250px;">
+                </div>
+                <div id="container-ordens-servico" class="lista-os-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modalDetalhes" class="modal-os" onclick="fecharModalExterno(event)">
+        <div class="modal-content glass-military">
+            <div id="corpoModal">
+                </div>
+            <button onclick="fecharModal()" class="btn-fechar-minimal">FECHAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

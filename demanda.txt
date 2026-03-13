@@ -1,0 +1,13 @@
+Demanda
+Origem - Águia florestal - PCM
+Igor Andrade 
+Aplicação que possa centralizar 3 ações
+- Módulo 1, de leitura, entrar, selecionar o equipamento e exibir o manual de instruções do equipamento, via celular ou tablet. Figura do manutentor e do ADM. ADM pode incluir novos equipamentos. Precisa de BD.
+
+- Módulo 2, Checklist mensal, 3 tipos de manutenções, manutenção mensal. Checklist específico para cada equipamento. Agenda para as manutenções, Visão do operador e do PCM(ADM).Observação opcional. Checklist dispara um email.
+
+ - Módulo 3, Manutenções corretivas, sobre demanda. Nome do manutentor, máquina para a correção, causa do problema, descrição do serviço/observações, data inicial e data final do serviço. Pode haver informações extras para os manutentores.
+
+- Existe mais manutentores do que equipamento.
+- Sistema de Login para poder separar trabalhos.
+- Funcionário 1, Funcionário 2, nome 1, nome 2.

@@ -1,0 +1,380 @@
+:root {
+    --military-green: #20643f; /* Verde Militar Profundo */
+    --light-green: #40b049;    /* Verde Claro Vibrante */
+    --sage: #7B8E6F;           /* Verde Acinzentado */
+    --off-white: #F4F7F2;
+    --dark-slate: #1A1F16;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    display: flex;
+    height: 100vh;
+    color: var(--dark-slate);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: var(--military-green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+}
+
+/* Atualização do Container do Logo */
+.logo-container {
+    display: flex;
+    justify-content: center; /* Centraliza o logo horizontalmente */
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 10px; /* Espaçamento interno opcional */
+}
+
+/* Nova Estilização para o Logo em Imagem */
+.logo-img {
+    width: 500px;       /* Faz o logo ocupar toda a largura disponível da sidebar */
+    height: 500px;      /* Mantém a proporção original sem distorcer */
+    max-height: 120px; /* Aumente este valor (ex: de 80px para 120px ou mais) para ele crescer verticalmente */
+    display: block;    /* Garante o comportamento de bloco para centralização */
+    margin: 0 auto;    /* Centraliza o logo caso ele não ocupe 100% da largura */
+}
+
+.nav-btn {
+    background: none; border: none; color: #D1D9CD;
+    padding: 15px; text-align: left; width: 100%;
+    border-radius: 12px; margin-bottom: 8px;
+    cursor: pointer; font-weight: 600;
+}
+
+.nav-btn.active {
+    background: var(--light-green);
+    color: var(--military-green);
+}
+
+/* Layout Principal */
+.main-content { flex: 1; padding: 40px; overflow-y: auto; }
+
+.content-header {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 40px;
+}
+
+.badge-military {
+    background: var(--military-green); color: var(--light-green);
+    padding: 8px 15px; border-radius: 5px; font-weight: 800; font-size: 0.8rem;
+    border: 1px solid var(--light-green);
+}
+
+/* Cards */
+.grid-layout {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px;
+}
+
+.card.glass-military {
+    background: #ffffff; /* Fundo branco do card */
+    border: 1px solid #DDE5DA;
+    border-radius: 20px; 
+    padding: 30px;
+    box-shadow: 10px 10px 30px rgba(59, 74, 50, 0.05);
+}
+
+.view-tag {
+    font-size: 0.7rem; background: var(--off-white);
+    padding: 5px 10px; border-radius: 50px; color: var(--sage);
+}
+
+/* Formulários */
+label { display: block; margin: 15px 0 8px; font-weight: 700; color: var(--military-green); }
+select, textarea {
+    width: 100%; padding: 15px; border-radius: 10px;
+    border: 2px solid #E6EEE3; background: #F9FBF8;
+}
+
+.alert-info {
+    margin: 20px 0; padding: 15px; background: #F1F6EE;
+    border-radius: 10px; font-size: 0.85rem; color: var(--sage);
+    display: flex; align-items: center; gap: 10px;
+}
+
+.btn-tactical {
+    width: 100%; 
+    padding: 18px; 
+    border: none; 
+    border-radius: 12px;
+    background: #20643f; /* Verde Escuro */
+    color: #40b049;    /* Verde Claro */
+    font-weight: 800; 
+    cursor: pointer; 
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-tactical:hover {
+    background: #1A1F16; /* Quase preto para o hover */
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+#areaPerguntas h4 {
+    color: #20643f !important;
+    border-bottom: 2px solid #40b049 !important;
+    padding-bottom: 10 box;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Esconde todas as abas por padrão */
+.tab-content {
+    display: none;
+}
+
+/* Mostra apenas a que tiver a classe active */
+.tab-content.active {
+    display: block;
+}
+
+#areaPerguntas span {
+    color: var(--dark-slate) !important; /* Força a cor escura em vez do branco */
+    font-weight: 500;
+}
+
+#areaPerguntas h4 {
+    color: var(--military-green) !important;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--light-green);
+    padding-bottom: 10px;
+}
+
+/* Estilo para as linhas das peças */
+#areaPerguntas div {
+    border-bottom: 1px solid #eee !important; /* Linha divisória clara */
+    padding: 12px 5px !important;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Garante que inputs de texto sigam o padrão dos selects */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #E6EEE3;
+    background: #F9FBF8;
+    box-sizing: border-box; /* Importante para não esticar */
+}
+
+.login-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--military-green); /* Fundo verde escuro oficial  */
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.login-header i {
+    font-size: 3rem;
+    color: var(--light-green); /* Verde claro oficial  */
+    margin-bottom: 15px;
+}
+
+.login-header img {
+    width: 60%;
+}
+
+.role-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #E6EEE3;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--sage);
+}
+
+.role-btn.active {
+    border-color: var(--light-green);
+    color: var(--military-green);
+    background: #F1F6EE;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background: var(--military-green);
+    color: var(--light-green);
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: var(--dark-slate);
+    transform: translateY(-2px);
+}
+
+.lista-os-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card-os {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 8px solid var(--military-green); /* Cor padrão */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.card-os:hover {
+    transform: scale(1.02);
+}
+
+.card-os h4 {
+    margin: 0 0 10px 0;
+    color: var(--military-green);
+    display: flex;
+    justify-content: space-between;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #f1f6ee;
+    color: var(--military-green);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sidebar-menu li:last-child {
+    color: #ff7675; /* Tom avermelhado para indicar saída */
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.sidebar-menu li:last-child:hover {
+    background: rgba(255, 118, 117, 0.1);
+    color: #d63031;
+}
+
+.modal-os {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.close-modal {
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--light-green);
+}
+
+.info-group {
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+}
+
+.info-group label {
+    display: block;
+    color: var(--light-green);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Faz o card parecer um botão */
+.card-os {
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.card-os:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lista-os-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    
+    /* CONFIGURAÇÃO DO SCROLL INTERNO */
+    max-height: 600px;       /* Define uma altura máxima fixa (ajuste como preferir) */
+    overflow-y: auto;        /* Ativa o scroll vertical apenas quando necessário */
+    padding-right: 10px;     /* Espaço para a barra não cobrir o card */
+}
+
+/* Personalização da barra de rolagem para ficar no estilo Dark/Verde */
+.lista-os-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista-os-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.lista-os-grid::-webkit-scrollbar-thumb {
+    background: #40b049;      /* O seu verde padrão */
+    border-radius: 10px;
+}
+
+.lista-os-grid::-webkit-scrollbar-thumb:hover {
+    background: #20643f;      /* O seu verde mais escuro no hover */
+}

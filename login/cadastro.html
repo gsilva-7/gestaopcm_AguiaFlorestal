@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro | Águia PCM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css"> </head>
+<body style="background: var(--military-green);">
+    <div class="login-card" style="max-width: 500px;">
+        <h2><i class="fas fa-user-plus"></i> Cadastro de Operação</h2>
+        
+        <form id="cadastroForm">
+            <label for="cad-nome">Nome Completo</label>
+            <input type="text" id="cad-nome" required>
+            
+            <div style="display: flex; gap: 15px;">
+                <div style="flex:1">
+                    <label for="cad-matricula">Matrícula</label>
+                    <input type="text" id="cad-matricula" required>
+                </div>
+                <div style="flex:1">
+                    <label for="cad-funcao">Função</label>
+                    <select id="cad-funcao" style="width:100%; padding:14px; border-radius:10px; border:2px solid #E6EEE3;">
+                        <option value="MANUTENTOR">Manutentor</option>
+                        <option value="PCM">Gestor PCM</option>
+                    </select>
+                </div>
+            </div>
+    
+            <label for="cad-senha">Definir Senha</label>
+            <input type="password" id="cad-senha" required>
+            
+            <button type="submit" class="btn-login">SOLICITAR ACESSO</button>
+            
+            <button type="button" onclick="window.location.href='login.html'" 
+                    style="width:100%; background:none; border:none; margin-top:15px; color:var(--military-green); cursor:pointer;">
+                Voltar ao Login
+            </button>
+        </form>
+    </div>
+    
+    <script src="cadastro.js"></script>
+</body>
+</html>

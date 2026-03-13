@@ -1,0 +1,17 @@
+# Ambiente virtual do Python
+venv/
+.venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Banco de dados (Como você está usando SQLite local, ignore o .db se não quiser subir dados de teste)
+*.db
+
+# Configurações do VS Code
+.vscode/
+
+# Pasta de uploads ou temporários (se houver)
+node_modules/

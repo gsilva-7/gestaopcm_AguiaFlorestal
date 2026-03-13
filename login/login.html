@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Águia PCM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-eagle"></i>
+                <img src="../logo.png" alt="">
+                <p>Módulo de Gestão PCM</p>
+            </div>
+
+            <div class="role-selector">
+                <button type="button" class="role-btn active" data-role="PCM" onclick="selectRole('PCM')">
+                    <i class="fas fa-user-shield"></i> PCM (ADM)
+                </button>
+                <button type="button" class="role-btn" data-role="MANUTENTOR" onclick="selectRole('MANUTENTOR')">
+                    <i class="fas fa-wrench"></i> Manutentor
+                </button>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Usuário / Matrícula</label>
+                    <input type="text" id="username" placeholder="Digite seu usuário..." required>
+                </div>
+                <div class="input-group">
+                    <label>Senha de Acesso</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-login">ACESSAR SISTEMA</button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Não possui acesso? <a href="cadastro.html">Solicitar Cadastro</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
