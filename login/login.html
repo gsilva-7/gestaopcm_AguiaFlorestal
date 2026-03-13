@@ -12,15 +12,15 @@
         <div class="login-card">
             <div class="login-header">
                 <i class="fas fa-eagle"></i>
-                <img src="../logo.png" alt="">
+                <img src="../logo.png" alt="Águia Florestal" class="login-logo-img">
                 <p>Módulo de Gestão PCM</p>
             </div>
 
             <div class="role-selector">
-                <button type="button" class="role-btn active" data-role="PCM" onclick="selectRole('PCM')">
+                <button type="button" class="role-btn active" id="btn-pcm" onclick="selectRole('PCM')">
                     <i class="fas fa-user-shield"></i> PCM (ADM)
                 </button>
-                <button type="button" class="role-btn" data-role="MANUTENTOR" onclick="selectRole('MANUTENTOR')">
+                <button type="button" class="role-btn" id="btn-manu" onclick="selectRole('MANUTENTOR')">
                     <i class="fas fa-wrench"></i> Manutentor
                 </button>
             </div>

@@ -11,7 +11,7 @@
 
     <div class="sidebar">
         <div class="logo-container">
-            <img src="logo.png" alt="Águia Florestal" class="logo-img">
+            <img src="logo2.png" alt="Águia Florestal" class="logo-img">
         </div>
         
         <nav class="nav-links">
@@ -82,18 +82,27 @@
         </section>
 
         <section id="mod3" class="tab-content">
-            <div class="card-status-grid adm-only" id="painel-status-adm" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px;">
-                <div class="card-status" style="background: rgba(231, 76, 60, 0.2); border: 1px solid #e74c3c; padding: 15px; border-radius: 8px; text-align: center;">
-                    <h4 style="margin: 0; font-size: 0.8rem; color: #e74c3c;">PENDENTES</h4>
-                    <span id="count-pendente" style="font-size: 2rem; font-weight: bold;">0</span>
+            <div id="painel-status-adm" class="dashboard-header adm-only">
+                <div class="stat-card">
+                    <div class="stat-icon icon-pendente"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="stat-data">
+                        <p>Pendentes</p>
+                        <h2 id="count-pendente">0</h2>
+                    </div>
                 </div>
-                <div class="card-status" style="background: rgba(52, 152, 219, 0.2); border: 1px solid #3498db; padding: 15px; border-radius: 8px; text-align: center;">
-                    <h4 style="margin: 0; font-size: 0.8rem; color: #3498db;">EM EXECUÇÃO</h4>
-                    <span id="count-execucao" style="font-size: 2rem; font-weight: bold;">0</span>
+                <div class="stat-card">
+                    <div class="stat-icon icon-execucao"><i class="fas fa-cogs"></i></div>
+                    <div class="stat-data">
+                        <p>Em Execução</p>
+                        <h2 id="count-execucao">0</h2>
+                    </div>
                 </div>
-                <div class="card-status" style="background: rgba(46, 204, 113, 0.2); border: 1px solid #2ecc71; padding: 15px; border-radius: 8px; text-align: center;">
-                    <h4 style="margin: 0; font-size: 0.8rem; color: #2ecc71;">CONCLUÍDAS</h4>
-                    <span id="count-concluida" style="font-size: 2rem; font-weight: bold;">0</span>
+                <div class="stat-card">
+                    <div class="stat-icon icon-concluida"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-data">
+                        <p>Concluídas</p>
+                        <h2 id="count-concluida">0</h2>
+                    </div>
                 </div>
             </div>
 
